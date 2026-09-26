@@ -23,7 +23,8 @@ local DEFAULTS = {
     ads = { texts = {}, active = 1 },
     -- Quick channel buttons: a channel name (looked up by name) or a fixed number.
     channels = { General = "general", Trade = "trade", LFG = "lookingforgroup" },
-    applyMessage = "Hi {name}! You can apply here: <your link>",
+    applyLink = "",   -- set in game (the ad panel or the options)
+    applyMessage = "Hi {name}! You can apply to our guild here: {link}",
     settings = {
         routeMinutes = 30,   -- whispers from unknown players this long after an ad become candidates
         trialDays = 14,      -- about two raid weeks
@@ -31,6 +32,7 @@ local DEFAULTS = {
     },
     lastAd = 0,
     lastSent = {},
+    adsWindow = {},
 }
 
 local function fill(dst, src)
@@ -48,6 +50,8 @@ local function initDB()
     local db = HushRecruitDB
     db.schema = db.schema or R.SCHEMA
     fill(db, DEFAULTS)
+    -- Early 0.1.0 builds had a placeholder instead of {link}.
+    if db.applyMessage:find("<your link>", 1, true) then db.applyMessage = DEFAULTS.applyMessage end
     for i = 1, R.NUM_ADS do db.ads.texts[i] = db.ads.texts[i] or "" end
     R.db = db
 end
@@ -112,4 +116,14 @@ SlashCmdList.HUSHRECRUIT = function(msg)
     else
         R.Print("/hr - ad panel, /hr status - saved data")
     end
+end
+
+-- The apply message for a player, with {name} and {link} filled in. nil if no link is set.
+function R.ApplyText(name)
+    local link = strtrim(R.db.applyLink or "")
+    if link == "" then return nil end
+    local short = (name or ""):match("^[^%-]+") or name or ""
+    -- "%" is special in gsub replacements (links can contain %20).
+    local function lit(s) return (s:gsub("%%", "%%%%")) end
+    return (R.db.applyMessage:gsub("{name}", lit(short)):gsub("{link}", lit(link)))
 end

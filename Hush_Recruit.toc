@@ -6,3 +6,4 @@
 ## SavedVariables: HushRecruitDB
 
 Core.lua
+Ads.lua
