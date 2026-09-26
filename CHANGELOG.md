@@ -13,3 +13,10 @@
 - Cooldown guard: sending to the same channel again within 60 s asks for a second click.
 - Apply link and apply message (`{name}`, `{link}`) editable in game.
 - Requires Hush 0.1.3 (`AddTitleButton`, `AddLauncherMenuItems`, `SplitMessage`).
+
+### Step 3 – Candidates
+- Recruit status per conversation: New, Link sent, Applied, Trial, Member, Declined. Status chip in the Hush header in the status color; trials show "Trial · day 5/14" and "Trial ended" (red) after the trial length.
+- Header buttons: **Apply link** (on whispers with non-guild players: sends the apply message, marks the player as a candidate with "Link sent" and moves the chat to Recruits), **Status**, **Note**, **Invite** (guild invite, only for candidates not in the guild).
+- Chat menu: Send apply link, Recruit status, Add/Edit note, Track as recruit; "Not a recruit" clears everything and moves the chat back to Other.
+- Candidates live in Recruits, members move to Guild; ordinary whispers are never touched. The note is shown on the header info line.
+- Requires Hush 0.1.4 (`AddHeaderInfo`).

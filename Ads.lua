@@ -354,6 +354,12 @@ local function build()
     restorePosition()
 end
 
+function R.OpenAds()
+    if not R.db then return end
+    if not frame then build() end
+    frame:Show()
+end
+
 function R.ToggleAds()
     if not R.db then return end
     if not frame then build() end
