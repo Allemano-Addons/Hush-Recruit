@@ -42,3 +42,6 @@
 ## 0.1.3 – 2026-09-27
 - The note is shown on its own line in the Hush header (requires Hush 0.1.11).
 - "Apply link" is hidden for guild members (also right after they join, before the roster updates) and for candidates on Trial or Member.
+
+## 0.1.4 – 2026-09-27
+- Notes: up to 250 characters, and saving an empty note removes it (requires Hush 0.1.12).

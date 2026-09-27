@@ -86,11 +86,13 @@ function R.EditNote(key)
     if not conv or not d then return end
     Hush.ShowDialog({
         title = "Note",
-        text = conv.display,
+        text = conv.display .. "  ·  leave empty to remove the note",
         input = d.note or "",
+        maxLetters = 250,
+        allowEmpty = true,
         okText = "Save",
         onOk = function(text)
-            d.note = text
+            d.note = text ~= "" and text or nil
             Hush.NotifyChanged(key)
         end,
     })
