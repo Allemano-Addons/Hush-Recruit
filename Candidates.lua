@@ -75,7 +75,7 @@ function R.SendApplyLink(key)
     if not conv or conv.kind ~= "whisper" then return end
     local text = R.ApplyText(conv.target)
     if not text then
-        R.Print("Set your apply link first (/hr → APPLY LINK).")
+        R.Print("Set your apply link first (/hr > APPLY LINK).")
         R.OpenAds()
         return
     end
