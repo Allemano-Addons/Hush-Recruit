@@ -20,3 +20,4 @@
 - Chat menu: Send apply link, Recruit status, Add/Edit note, Track as recruit; "Not a recruit" clears everything and moves the chat back to Other.
 - Candidates live in Recruits, members move to Guild; ordinary whispers are never touched. The note is shown on the header info line.
 - Requires Hush 0.1.4 (`AddHeaderInfo`).
+- Fix: the Invite button uses `/ginvite` through Hush's secure button (guild invites are protected). Requires Hush 0.1.6.

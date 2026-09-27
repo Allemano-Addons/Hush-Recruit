@@ -146,7 +146,8 @@ Hush.AddHeaderButton({
     isShown = function(key, conv)
         return isWhisper(conv) and R.IsCandidate(key) and not inGuild(conv) and Hush.CanGuildInvite()
     end,
-    onClick = function(_, conv) Hush.GuildInvite(conv.target) end,
+    -- Guild invites are protected: /ginvite runs through a secure button in Hush.
+    macro = function(_, conv) return "/ginvite " .. conv.target end,
 }, M)
 
 Hush.AddHeaderButton({
