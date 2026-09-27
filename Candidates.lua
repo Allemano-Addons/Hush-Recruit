@@ -118,7 +118,19 @@ end
 -- ---------------------------------------------------------------------------
 
 local function isWhisper(conv) return conv.kind == "whisper" end
-local function inGuild(conv) return Hush.IsGuildMember(conv.target) end
+-- Guild member per the roster, or per the info Hush knows (roster may lag behind a join).
+local function inGuild(conv)
+    if Hush.IsGuildMember(conv.target) then return true end
+    local mine = IsInGuild() and GetGuildInfo("player") or nil
+    return mine ~= nil and conv.info and conv.info.guild == mine
+end
+
+-- Apply link only makes sense before someone is in the guild.
+local function wantsApply(key, conv)
+    if inGuild(conv) then return false end
+    local d = R.Peek(key)
+    return not (d and (d.status == "trial" or d.status == "member"))
+end
 
 -- Status chip: "TRIAL · DAY 5/14", colored per status.
 Hush.AddStatusChip(function(key)
@@ -156,7 +168,7 @@ Hush.AddHeaderButton({
 
 Hush.AddHeaderButton({
     id = "recruit_apply", text = "Apply link", tooltip = "Whisper your apply link and track as a recruit",
-    isShown = function(_, conv) return isWhisper(conv) and not inGuild(conv) end,
+    isShown = function(key, conv) return isWhisper(conv) and wantsApply(key, conv) end,
     onClick = function(key) R.SendApplyLink(key) end,
 }, M)
 
@@ -165,7 +177,7 @@ Hush.AddChatMenuItems(function(key, conv)
     if not isWhisper(conv) then return nil end
     local d = R.Peek(key) or {}
     local items = {}
-    if not inGuild(conv) then
+    if wantsApply(key, conv) then
         items[#items + 1] = { text = "Send apply link", onClick = function() R.SendApplyLink(key) end }
     end
     if d.status then
@@ -181,6 +193,6 @@ end)
 Hush.AddHeaderInfo(function(key)
     local d = R.Peek(key)
     if d and d.status and d.note and d.note ~= "" then
-        return "|cff9aa3adNote:|r " .. d.note
+        return d.note -- Hush shows it on its own line with an accent bar
     end
 end, M)

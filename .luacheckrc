@@ -15,5 +15,5 @@ read_globals = {
     "sort", "floor", "ceil", "min", "max", "format", "date", "time", "CopyTable", "geterrorhandler",
     "CreateFrame", "UIParent", "DEFAULT_CHAT_FRAME", "GetTime", "SendChatMessage", "C_ChatInfo",
     "GetChannelName", "IsInGuild", "UnitName", "InCombatLockdown", "IsShiftKeyDown", "GetCursorPosition",
-    "ERR_GUILD_JOIN_S",
+    "ERR_GUILD_JOIN_S", "GetGuildInfo",
 }

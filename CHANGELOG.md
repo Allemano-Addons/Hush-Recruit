@@ -38,3 +38,7 @@
 ## 0.1.2 – 2026-09-27
 - Removed the header **Invite** button: guild invites only work reliably from the chat right-click menu ("Guild invite"), which Hush provides.
 - SlakthusetRecruit has been removed; Hush Recruit replaces it.
+
+## 0.1.3 – 2026-09-27
+- The note is shown on its own line in the Hush header (requires Hush 0.1.11).
+- "Apply link" is hidden for guild members (also right after they join, before the roster updates) and for candidates on Trial or Member.
