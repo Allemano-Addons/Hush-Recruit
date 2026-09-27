@@ -45,3 +45,6 @@
 
 ## 0.1.4 – 2026-09-27
 - Notes: up to 250 characters, and saving an empty note removes it (requires Hush 0.1.12).
+
+## 0.1.5 – 2026-09-27
+- Members are done: no status chip and no Status/Note buttons in the header (a note stays visible on its own line). Status and note can still be changed from the right-click menu. Trials keep the chip and buttons.

@@ -33,6 +33,12 @@ function R.IsCandidate(key)
     return d ~= nil and d.status ~= nil
 end
 
+-- A candidate still in the recruiting process (Member means done: no chip or buttons).
+function R.IsActiveCandidate(key)
+    local d = R.Peek(key)
+    return d ~= nil and d.status ~= nil and d.status ~= "member"
+end
+
 -- Days into the trial (1 on the first day).
 function R.TrialDay(d)
     if not d.trialStart then return nil end
@@ -137,7 +143,7 @@ end
 -- Status chip: "TRIAL · DAY 5/14", colored per status.
 Hush.AddStatusChip(function(key)
     local d = R.Peek(key)
-    if not d or not d.status then return nil end
+    if not d or not d.status or d.status == "member" then return nil end
     local s = byId[d.status]
     if not s then return nil end
     local text = s.label
@@ -158,13 +164,13 @@ end, M)
 -- right-click menu: it is protected and only works reliably through the menu.)
 Hush.AddHeaderButton({
     id = "recruit_note", text = "Note", tooltip = "Note about this candidate",
-    isShown = function(key, conv) return isWhisper(conv) and R.IsCandidate(key) end,
+    isShown = function(key, conv) return isWhisper(conv) and R.IsActiveCandidate(key) end,
     onClick = function(key) R.EditNote(key) end,
 }, M)
 
 Hush.AddHeaderButton({
     id = "recruit_status", text = "Status", tooltip = "Recruit status",
-    isShown = function(key, conv) return isWhisper(conv) and R.IsCandidate(key) end,
+    isShown = function(key, conv) return isWhisper(conv) and R.IsActiveCandidate(key) end,
     onClick = function(key) Hush.Widgets.OpenMenu(statusItems(key)) end,
 }, M)
 
