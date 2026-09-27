@@ -140,16 +140,8 @@ Hush.AddStatusChip(function(key)
     return text, r, g, b
 end, M)
 
--- Header buttons, added right to left: Invite, Note, Status, Apply link.
-Hush.AddHeaderButton({
-    id = "recruit_invite", text = "Invite", tooltip = "Guild invite",
-    isShown = function(key, conv)
-        return isWhisper(conv) and R.IsCandidate(key) and not inGuild(conv) and Hush.CanGuildInvite()
-    end,
-    -- Guild invites are protected: /ginvite runs through a secure button in Hush.
-    macro = function(_, conv) return "/ginvite " .. conv.target end,
-}, M)
-
+-- Header buttons, added right to left: Note, Status, Apply link. (Guild invite is in the
+-- right-click menu: it is protected and only works reliably through the menu.)
 Hush.AddHeaderButton({
     id = "recruit_note", text = "Note", tooltip = "Note about this candidate",
     isShown = function(key, conv) return isWhisper(conv) and R.IsCandidate(key) end,

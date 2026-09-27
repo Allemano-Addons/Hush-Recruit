@@ -34,3 +34,7 @@
 
 ## 0.1.1 – 2026-09-27
 - The ad panel no longer captures the keyboard; ESC closes it through `UISpecialFrames` (window name `HushRecruitFrame`). Requires Hush 0.1.8.
+
+## 0.1.2 – 2026-09-27
+- Removed the header **Invite** button: guild invites only work reliably from the chat right-click menu ("Guild invite"), which Hush provides.
+- SlakthusetRecruit has been removed; Hush Recruit replaces it.
