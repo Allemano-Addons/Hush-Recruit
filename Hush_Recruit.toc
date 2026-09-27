@@ -4,7 +4,7 @@
 ## Version: 0.1.7
 ## Dependencies: Hush
 ## SavedVariables: HushRecruitDB
-## IconTexture: Interface\Icons\Ability_Warrior_BattleShout
+## IconTexture: Interface\AddOns\Hush_Recruit\Media\logo
 
 Core.lua
 Ads.lua
