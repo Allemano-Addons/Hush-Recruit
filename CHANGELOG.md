@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 (in progress)
+## 0.1.0 – 2026-09-27
 
 ### Step 1 – Skeleton
 - Module skeleton (`## Dependencies: Hush`), account-wide `HushRecruitDB` (5 ad texts, channel buttons, apply message, settings).
@@ -27,3 +27,7 @@
 - The ad panel shows until when the window is open. `/hr window` opens it without posting an ad (e.g. after advertising on Discord).
 - "X has joined the guild" for a candidate starts the trial (Trial · day 1/14).
 - At login, trials past their length are listed so they can be set to Member or Declined.
+
+### Step 5 – Options
+- "Recruit" page in the Hush settings (`/hr options`): channel buttons, candidate window (10–120 min), trial length (7–28 days), ad cooldown (off–300 s), apply link and message, shortcuts to the ad panel and the candidate window.
+- README.md. Replaces SlakthusetRecruit (import done in step 1).

@@ -108,6 +108,8 @@ SlashCmdList.HUSHRECRUIT = function(msg)
     msg = strlower(strtrim(msg or ""))
     if msg == "" then
         if R.ToggleAds then R.ToggleAds() else R.Print("The ad panel arrives in the next step.") end
+    elseif msg == "options" then
+        Hush.OpenSettings("recruit")
     elseif msg == "window" then
         R.OpenWindow()
     elseif msg == "status" then
@@ -116,7 +118,7 @@ SlashCmdList.HUSHRECRUIT = function(msg)
         R.Print(("%d/%d ad texts, channels: General=%s, Trade=%s, LFG=%s"):format(filled, R.NUM_ADS,
             tostring(R.db.channels.General), tostring(R.db.channels.Trade), tostring(R.db.channels.LFG)))
     else
-        R.Print("/hr - ad panel, /hr window - start the candidate window without an ad, /hr status - saved data")
+        R.Print("/hr - ad panel, /hr options - settings, /hr window - start the candidate window without an ad, /hr status - saved data")
     end
 end
 

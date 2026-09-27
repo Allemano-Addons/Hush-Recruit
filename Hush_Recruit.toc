@@ -9,3 +9,4 @@ Core.lua
 Ads.lua
 Candidates.lua
 Routing.lua
+Options.lua
