@@ -54,3 +54,6 @@
 
 ## 0.1.7 – 2026-09-27
 - The ad panel follows the Hush Blizzard Style theme (requires Hush 0.1.21 for the classic frame; older Hush keeps the flat look).
+
+## 0.1.8 – 2026-09-27
+- Own logo in the addon list (`Media/logo.tga`).
