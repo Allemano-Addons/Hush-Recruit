@@ -21,3 +21,9 @@
 - Candidates live in Recruits, members move to Guild; ordinary whispers are never touched. The note is shown on the header info line.
 - Requires Hush 0.1.4 (`AddHeaderInfo`).
 - Fix: the Invite button uses `/ginvite` through Hush's secure button (guild invites are protected). Requires Hush 0.1.6.
+
+### Step 4 – Auto-routing and guild join
+- Posting an ad to a channel opens a 30-minute candidate window. Unknown players (not guild members or friends) who whisper you first during the window become candidates with status New and go straight to Recruits in the Whispers tab (not Requests). Ordinary whispers are never touched.
+- The ad panel shows until when the window is open. `/hr window` opens it without posting an ad (e.g. after advertising on Discord).
+- "X has joined the guild" for a candidate starts the trial (Trial · day 1/14).
+- At login, trials past their length are listed so they can be set to Member or Declined.

@@ -110,7 +110,12 @@ local function sendAd(label, number)
     end
     R.db.lastSent[key] = now
     if chatType == "CHANNEL" then R.db.lastAd = now end -- starts the candidate window (step 4)
-    setStatus(("Sent %d message%s to %s at %s."):format(#parts, #parts == 1 and "" or "s", where, date("%H:%M")), "online")
+    local status = ("Sent %d message%s to %s at %s."):format(#parts, #parts == 1 and "" or "s", where, date("%H:%M"))
+    if chatType == "CHANNEL" then
+        status = status .. ("  New whispers from unknown players become candidates until %s.")
+            :format(date("%H:%M", now + (R.db.settings.routeMinutes or 30) * 60))
+    end
+    setStatus(status, "online")
 end
 
 -- ---------------------------------------------------------------------------
@@ -324,6 +329,7 @@ local function build()
     statusLine = W.Text(frame, "regular", -1, "textDim")
     statusLine:SetPoint("BOTTOMLEFT", PAD, 16)
     statusLine:SetWidth(WIDTH - PAD * 2)
+    statusLine:SetWordWrap(true)
 
     -- ESC closes (keyboard only while shown and out of combat, like Hush).
     frame:SetScript("OnKeyDown", function(self, key)

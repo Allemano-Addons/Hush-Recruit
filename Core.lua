@@ -108,13 +108,15 @@ SlashCmdList.HUSHRECRUIT = function(msg)
     msg = strlower(strtrim(msg or ""))
     if msg == "" then
         if R.ToggleAds then R.ToggleAds() else R.Print("The ad panel arrives in the next step.") end
+    elseif msg == "window" then
+        R.OpenWindow()
     elseif msg == "status" then
         local filled = 0
         for i = 1, R.NUM_ADS do if R.db.ads.texts[i] ~= "" then filled = filled + 1 end end
         R.Print(("%d/%d ad texts, channels: General=%s, Trade=%s, LFG=%s"):format(filled, R.NUM_ADS,
             tostring(R.db.channels.General), tostring(R.db.channels.Trade), tostring(R.db.channels.LFG)))
     else
-        R.Print("/hr - ad panel, /hr status - saved data")
+        R.Print("/hr - ad panel, /hr window - start the candidate window without an ad, /hr status - saved data")
     end
 end
 
