@@ -48,3 +48,6 @@
 
 ## 0.1.5 – 2026-09-27
 - Members are done: no status chip and no Status/Note buttons in the header (a note stays visible on its own line). Status and note can still be changed from the right-click menu. Trials keep the chip and buttons.
+
+## 0.1.6 – 2026-09-27
+- Storage cleanup never removes candidates in the process, or members with a note (requires Hush 0.1.13).

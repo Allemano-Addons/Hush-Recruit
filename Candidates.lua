@@ -204,3 +204,10 @@ Hush.AddHeaderInfo(function(key)
         return d.note -- Hush shows it on its own line with an accent bar
     end
 end, M)
+
+-- Storage cleanup never removes candidates still in the process (or members with a note).
+Hush.AddRetentionGuard(function(key)
+    local d = R.Peek(key)
+    if not d or not d.status then return false end
+    return d.status ~= "declined" and (d.status ~= "member" or (d.note ~= nil and d.note ~= ""))
+end, M)
