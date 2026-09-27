@@ -31,3 +31,6 @@
 ### Step 5 – Options
 - "Recruit" page in the Hush settings (`/hr options`): channel buttons, candidate window (10–120 min), trial length (7–28 days), ad cooldown (off–300 s), apply link and message, shortcuts to the ad panel and the candidate window.
 - README.md. Replaces SlakthusetRecruit (import done in step 1).
+
+## 0.1.1 – 2026-09-27
+- The ad panel no longer captures the keyboard; ESC closes it through `UISpecialFrames` (window name `HushRecruitFrame`). Requires Hush 0.1.8.

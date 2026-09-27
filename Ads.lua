@@ -192,7 +192,9 @@ local function buildEditor(parent, height)
 end
 
 local function build()
-    frame = CreateFrame("Frame", nil, UIParent)
+    -- Named only so ESC closes it through UISpecialFrames (no keyboard capture).
+    frame = CreateFrame("Frame", "HushRecruitFrame", UIParent)
+    tinsert(UISpecialFrames, "HushRecruitFrame")
     frame:SetSize(WIDTH, HEIGHT)
     frame:SetFrameStrata("HIGH")
     frame:SetToplevel(true)
@@ -331,31 +333,16 @@ local function build()
     statusLine:SetWidth(WIDTH - PAD * 2)
     statusLine:SetWordWrap(true)
 
-    -- ESC closes (keyboard only while shown and out of combat, like Hush).
-    frame:SetScript("OnKeyDown", function(self, key)
-        if key == "ESCAPE" and not InCombatLockdown() then
-            self:SetPropagateKeyboardInput(false)
-            self:Hide()
-        end
-    end)
-    frame:SetScript("OnShow", function(self)
-        if not InCombatLockdown() then
-            self:EnableKeyboard(true)
-            self:SetPropagateKeyboardInput(true)
-        end
+    frame:SetScript("OnShow", function()
         link:SetText(R.db.applyLink or "")
         msg:SetText(R.db.applyMessage or "")
         selectAd(R.db.ads.active)
         setStatus("")
     end)
-    frame:SetScript("OnHide", function(self)
-        self:EnableKeyboard(false)
+    frame:SetScript("OnHide", function()
         edit:ClearFocus()
         W.CloseMenus()
     end)
-    local ev = CreateFrame("Frame")
-    ev:RegisterEvent("PLAYER_REGEN_DISABLED")
-    ev:SetScript("OnEvent", function() frame:EnableKeyboard(false) end)
 
     restorePosition()
 end
