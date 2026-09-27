@@ -51,3 +51,6 @@
 
 ## 0.1.6 – 2026-09-27
 - Storage cleanup never removes candidates in the process, or members with a note (requires Hush 0.1.13).
+
+## 0.1.7 – 2026-09-27
+- The ad panel follows the Hush Blizzard Style theme (requires Hush 0.1.21 for the classic frame; older Hush keeps the flat look).

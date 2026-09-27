@@ -1,7 +1,7 @@
 ## Interface: 16001
 ## Title: Hush Recruit
 ## Notes: Guild recruitment for Hush: channel ads, apply link, candidate tracking.
-## Version: 0.1.6
+## Version: 0.1.7
 ## Dependencies: Hush
 ## SavedVariables: HushRecruitDB
 

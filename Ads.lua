@@ -227,6 +227,8 @@ local function build()
     local name = W.Text(title, "heading", 3, "text")
     name:SetPoint("LEFT", square, "RIGHT", 8, 0)
     name:SetText("RECRUITMENT")
+    -- Hush themes: Blizzard Style gives this panel the classic frame too.
+    if W.SkinPanel then W.SkinPanel(frame, { kind = "dialog", hide = { frame.bg }, borders = { frame.border }, title = name }) end
     local close = W.IconButton(title, "close", 24, "Close", function() frame:Hide() end, "x")
     close:SetPoint("RIGHT", -8, 0)
 
