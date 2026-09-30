@@ -9,6 +9,7 @@ globals = {
 }
 
 read_globals = {
+    "issecretvalue",
     "Hush", "SlakthusetRecruitDB",
     "UISpecialFrames",
     "strjoin", "strsplit", "strtrim", "strlower", "strupper", "tostringall", "tinsert", "tremove", "wipe",

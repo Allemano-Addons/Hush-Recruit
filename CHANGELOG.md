@@ -57,3 +57,6 @@
 
 ## 0.1.8 – 2026-09-27
 - Own logo in the addon list (`Media/logo.tga`).
+
+## 0.1.9 – 2026-09-30
+- Fix: "attempt to index local 'msg' (a secret string value)" – system messages can be secret on WoW Forever (instances, boss fights); the guild-join check now skips them.

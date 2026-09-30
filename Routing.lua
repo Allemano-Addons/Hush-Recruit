@@ -54,6 +54,8 @@ local events = CreateFrame("Frame")
 events:RegisterEvent("CHAT_MSG_SYSTEM")
 events:SetScript("OnEvent", function(_, _, msg)
     if not R.db or not Hush.IsReady() then return end
+    -- Secret text (instances, boss fights on WoW Forever) can't be read; any string call errors.
+    if issecretvalue and issecretvalue(msg) then return end
     local who = matchJoin(msg or "")
     if not who then return end
     local key, conv = findCandidate(who:match("^[^%-]+") or who)
