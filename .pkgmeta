@@ -1,0 +1,11 @@
+package-as: Hush_Recruit
+
+ignore:
+  - .luacheckrc
+  - .gitattributes
+  - .github
+  - Media/logo.png
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
