@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.1.9 – 2026-09-30
+- Fix: "attempt to index local 'msg' (a secret string value)" – system messages can be secret on WoW Forever (instances, boss fights); the guild-join check now skips them.
+
+## 0.1.8 – 2026-09-27
+- Own logo in the addon list (`Media/logo.tga`).
+
+## 0.1.7 – 2026-09-27
+- The ad panel follows the Hush Blizzard Style theme (requires Hush 0.1.21 for the classic frame; older Hush keeps the flat look).
+
+## 0.1.6 – 2026-09-27
+- Storage cleanup never removes candidates in the process, or members with a note (requires Hush 0.1.13).
+
+## 0.1.5 – 2026-09-27
+- Members are done: no status chip and no Status/Note buttons in the header (a note stays visible on its own line). Status and note can still be changed from the right-click menu. Trials keep the chip and buttons.
+
+## 0.1.4 – 2026-09-27
+- Notes: up to 250 characters, and saving an empty note removes it (requires Hush 0.1.12).
+
+## 0.1.3 – 2026-09-27
+- The note is shown on its own line in the Hush header (requires Hush 0.1.11).
+- "Apply link" is hidden for guild members (also right after they join, before the roster updates) and for candidates on Trial or Member.
+
+## 0.1.2 – 2026-09-27
+- Removed the header **Invite** button: guild invites only work reliably from the chat right-click menu ("Guild invite"), which Hush provides.
+- SlakthusetRecruit has been removed; Hush Recruit replaces it.
+
+## 0.1.1 – 2026-09-27
+- The ad panel no longer captures the keyboard; ESC closes it through `UISpecialFrames` (window name `HushRecruitFrame`). Requires Hush 0.1.8.
+
 ## 0.1.0 – 2026-09-27
 
 ### Step 1 – Skeleton
@@ -31,32 +60,3 @@
 ### Step 5 – Options
 - "Recruit" page in the Hush settings (`/hr options`): channel buttons, candidate window (10–120 min), trial length (7–28 days), ad cooldown (off–300 s), apply link and message, shortcuts to the ad panel and the candidate window.
 - README.md. Replaces SlakthusetRecruit (import done in step 1).
-
-## 0.1.1 – 2026-09-27
-- The ad panel no longer captures the keyboard; ESC closes it through `UISpecialFrames` (window name `HushRecruitFrame`). Requires Hush 0.1.8.
-
-## 0.1.2 – 2026-09-27
-- Removed the header **Invite** button: guild invites only work reliably from the chat right-click menu ("Guild invite"), which Hush provides.
-- SlakthusetRecruit has been removed; Hush Recruit replaces it.
-
-## 0.1.3 – 2026-09-27
-- The note is shown on its own line in the Hush header (requires Hush 0.1.11).
-- "Apply link" is hidden for guild members (also right after they join, before the roster updates) and for candidates on Trial or Member.
-
-## 0.1.4 – 2026-09-27
-- Notes: up to 250 characters, and saving an empty note removes it (requires Hush 0.1.12).
-
-## 0.1.5 – 2026-09-27
-- Members are done: no status chip and no Status/Note buttons in the header (a note stays visible on its own line). Status and note can still be changed from the right-click menu. Trials keep the chip and buttons.
-
-## 0.1.6 – 2026-09-27
-- Storage cleanup never removes candidates in the process, or members with a note (requires Hush 0.1.13).
-
-## 0.1.7 – 2026-09-27
-- The ad panel follows the Hush Blizzard Style theme (requires Hush 0.1.21 for the classic frame; older Hush keeps the flat look).
-
-## 0.1.8 – 2026-09-27
-- Own logo in the addon list (`Media/logo.tga`).
-
-## 0.1.9 – 2026-09-30
-- Fix: "attempt to index local 'msg' (a secret string value)" – system messages can be secret on WoW Forever (instances, boss fights); the guild-join check now skips them.
