@@ -1,6 +1,6 @@
 # Credits
 
-**Hush Recruit** is part of Allemano Addons (https://allemano-site.pages.dev).
+**Hush Recruit** is part of Allemano Addons (https://allemano.org).
 
 ## How it is made
 
